@@ -1,0 +1,20 @@
+<h1><%= t('views.common.title_show', name: i18n_pluralize(User.model_name.human)) %></h1>
+
+<div>
+  <p><%= label_tag :email, User.human_attribute_name(:email) %></p>
+  <p><%= @user.email %></p>
+</div>
+<div>
+  <p><%= label_tag :address, User.human_attribute_name(:post_number) %></p>
+  <p><%= @user.post_number %></p>
+</div>
+<div>
+  <p><%= label_tag :address, User.human_attribute_name(:address) %></p>
+  <p><%= @user.address %></p>
+</div>
+<div>
+  <p><%= label_tag :introduce, User.human_attribute_name(:introduce) %></p>
+  <p><%= @user.introduce %></p>
+</div>
+
+<%= link_to t('views.common.back', name: User.model_name.human), users_path %>

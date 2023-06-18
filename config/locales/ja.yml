@@ -1,6 +1,11 @@
 ---
 ja:
   activerecord:
+    attributes:
+      user:
+        post_number: 郵便番号
+        address: 住所
+        introduce: 自己紹介
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -190,10 +195,12 @@ ja:
       back: "%{name}の一覧に戻る"
       delete_confirm: よろしいですか？
       title_index: "%{name}の一覧"
+      title_show: "%{name}の詳細"
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
+      sing_out: "サインアウト"
     pagination:
       first: '« 最初'
       last: '最後 »'
