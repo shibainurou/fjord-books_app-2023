@@ -31,38 +31,36 @@
 
 ja:
   index:
-    title: "本一覧"
+    title: "%{name}一覧"
   new:
-    title: "本の追加"
+    title: "%{name}の追加"
     message:
-      finish: "追加しました"
+      finish: 追加しました
   edit:
-    title: "本の編集"
+    title: "%{name}の編集"
     message:
-      finish: "変更しました"
+      finish: 変更しました
   show:
     button:
-      destroy: "削除"
+      destroy: 削除
   destroy:
     message:
       finish: "削除しました"
-  title: "タイトル"
-  memo: "メモ"
-  author: "著者"
-  picture: "写真"
   link:
-    show: "本の詳細"
-    newbook: "本を追加"
-    edit: "この本を編集"
-    back: "本の一覧に戻る"
+    show: "%{name}の詳細"
+    newbook: "%{name}を追加"
+    edit: "この%{name}を編集"
+    back: "%{name}の一覧に戻る"
   activerecord:
+    models:
+      book: 本
     attributes:
       book:
-        title: "タイトル"
-        memo: "メモ"
-        author: "著者"
-        picture: "写真"
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 写真
   helpers:
     submit:
-      create: "追加"
-      update: "更新"
+      create: 追加
+      update: 更新

@@ -31,33 +31,34 @@
 
 en:
   index:
-    title: "Books"
+    title: "%{name}"
   new:
-    title: "New book"
+    title: "New %{name}"
     message:
-      finish: "Book was successfully created."
+      finish: "%{name} was successfully created."
   edit:
-    title: "Edit book"
+    title: "Edit %{name}"
     message:
-      finish: "Book was successfully updated."
+      finish: "%{name} was successfully updated."
   show:
     button:
-      destroy: "Destroy this book"
+      destroy: "Destroy this %{name}"
   destroy:
     message:
-      finish: "Book was successfully destroyed."
-  memo: "Memo"
-  author: "Author"
-  picture: "Picture"
+      finish: "%{name} was successfully destroyed."
   link:
-    show: "Show this book"
-    newbook: "New book"
-    edit: "Edit this book"
-    back: "Back to books"
+    show: "Show this %{name}"
+    newbook: "New %{name}"
+    edit: "Edit this %{name}"
+    back: "Back to %{name}"
   activerecord:
+    models:
+      book: 
+        one: Book
+        other: Books
     attributes:
       book:
-        title: "Title"
-        memo: "Memo"
-        author: "Author"
-        picture: "Picture"
+        title: Title
+        memo: Memo
+        author: Author
+        picture: Picture
