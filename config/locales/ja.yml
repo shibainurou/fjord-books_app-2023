@@ -16,7 +16,7 @@
 #
 # This would use the information in config/locales/es.yml.
 #
-# The following keys must be escaped otherwise they will not be retrieved by
+# The following k eys must be escaped otherwise they will not be retrieved by
 # the default I18n backend:
 #
 # true, false, on, off, yes, no
@@ -29,36 +29,38 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
+ja:
   index:
-    title: "%{name}"
+    title: "%{name}一覧"
   new:
-    title: "New %{name}"
+    title: "%{name}の追加"
     message:
-      finish: "%{name} was successfully created."
+      finish: 追加しました
   edit:
-    title: "Edit %{name}"
+    title: "%{name}の編集"
     message:
-      finish: "%{name} was successfully updated."
+      finish: 変更しました
   show:
     button:
-      destroy: "Destroy this %{name}"
+      destroy: 削除
   destroy:
     message:
-      finish: "%{name} was successfully destroyed."
+      finish: "削除しました"
   link:
-    show: "Show this %{name}"
-    newbook: "New %{name}"
-    edit: "Edit this %{name}"
-    back: "Back to %{name}"
+    show: "%{name}の詳細"
+    newbook: "%{name}を追加"
+    edit: "この%{name}を編集"
+    back: "%{name}の一覧に戻る"
   activerecord:
     models:
-      book: 
-        one: Book
-        other: Books
+      book: 本
     attributes:
       book:
-        title: Title
-        memo: Memo
-        author: Author
-        picture: Picture
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 写真
+  helpers:
+    submit:
+      create: 追加
+      update: 更新
