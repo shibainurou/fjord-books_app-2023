@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     books_path
   end
 
+  def signed_in_root_path(_resource_or_scope)
+    user_path(current_user.id)
+  end
+
   protected
 
   def configure_permitted_parameters
