@@ -5,7 +5,7 @@ ja:
       user:
         post_number: 郵便番号
         address: 住所
-        introduce: 自己紹介
+        self_introduce: 自己紹介
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
