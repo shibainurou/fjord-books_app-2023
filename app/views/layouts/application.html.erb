@@ -11,6 +11,9 @@
   </head>
 
   <body class="<%= params[:action] %>">
+    <% if user_signed_in? %>
+      <%= render 'layouts/top_menu' %>
+    <% end %>
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
