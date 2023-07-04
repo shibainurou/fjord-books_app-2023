@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password %>
     <% if @minimum_password_length %>
       <br />
       <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
@@ -23,27 +23,27 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <div class="field">
     <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password %>
   </div>
 
   <div class="field">
     <%= f.label :post_number %><br />
-    <%= f.text_field :post_number, autocomplete: "post_number" %>
+    <%= f.text_field :post_number %>
   </div>
 
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_field :address, autocomplete: "address" %>
+    <%= f.text_field :address %>
   </div>
 
   <div class="field">
     <%= f.label :self_introduce %><br />
-    <%= f.text_area :self_introduce, autocomplete: "self_introduce" %>
+    <%= f.text_area :self_introduce %>
   </div>
 
   <div class="actions">
