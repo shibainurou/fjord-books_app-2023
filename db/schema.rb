@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_133735) do
     t.string "user_id", default: "", null: false
     t.string "post_number"
     t.string "address"
-    t.string "self_introduce"
+    t.string "self_introduction"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
