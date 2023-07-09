@@ -319,3 +319,15 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background-color: var(--global-primary-c-hover);
 }
+
+.top-menu {
+  text-align: right;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
