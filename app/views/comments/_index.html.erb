@@ -1,0 +1,24 @@
+<div>
+  <% comments.each do |comment| %>
+    <div class="show-item show-comment-area">
+      <div class="comment-title">
+        <div class="comment-user">
+          <% if comment.user.name.empty? %>
+            <%= comment.user.email %>
+          <% else %>
+            <%= comment.user.name %>
+          <% end %>
+        </div>
+        <div class="comment-date">
+          <%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+        </div>
+      </div>
+      <div class="comment-content">
+        <%= comment.content %>
+      </div>
+      <div>
+        <%= button_to t("views.common.destroy", name: Comment.model_name.human.downcase), polymorphic_url([commentable, comment]), method: :delete %>
+      </div>
+    </div>
+  <% end %>
+</div>
