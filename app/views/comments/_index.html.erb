@@ -17,7 +17,9 @@
         <%= comment.content %>
       </div>
       <div>
-        <%= button_to t("views.common.destroy", name: Comment.model_name.human.downcase), polymorphic_url([commentable, comment]), method: :delete %>
+        <% if comment.created_user_id == current_user.id %>
+          <%= button_to t("views.common.destroy", name: Comment.model_name.human.downcase), polymorphic_url([commentable, comment]), method: :delete %>
+        <% end %>
       </div>
     </div>
   <% end %>
