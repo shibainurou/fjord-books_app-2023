@@ -11,7 +11,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
-      format.json { head :no_content }
     end
   end
 
@@ -23,7 +22,6 @@ class CommentsController < ApplicationController
       redirect_to @commentable
     else
       format.html { render :new, status: :unprocessable_entity }
-      format.json { render json: @comment.errors, status: :unprocessable_entity }
     end
   end
 
