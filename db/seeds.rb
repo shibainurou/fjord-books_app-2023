@@ -128,6 +128,16 @@ Report.transaction do
   end
 end
 
+Report.transaction do
+  reports = Report.all.to_a
+  55.times do
+    report_mentioning = reports.sample
+    report_mentioned = reports.sample
+    new_content = "#{report_mentioned.content} http://127.0.0.1:3000/reports/#{report_mentioning.id}"
+    report_mentioned.update(content: new_content)
+  end
+end
+
 # dependent: :destroy で全件削除されているはずだが念のため
 Comment.destroy_all
 
@@ -162,6 +172,17 @@ ApplicationRecord.transaction do # rubocop:disable Metrics/BlockLength
   TEXT
   Report.all.each do |report|
     add_comments_to(report, contents)
+  end
+end
+
+Mention.transaction do
+  Mention.destroy_all
+
+  reports = Report.all.to_a
+  reports.each do |report|
+    report.content.scan(%r{http://127\.0\.0\.1:3000/reports/([0-9]+)(?=\s|$)}) do |match|
+      Mention.create!(mentioning_report: report, mentioned_report: Report.find(match.first))
+    end
   end
 end
 
