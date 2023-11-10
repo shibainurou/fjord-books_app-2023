@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @comment = @commentable.comments.create(comment_params)
-    @comment.created_user_id = current_user.id
+    @comment.user_id = current_user.id
     if @comment.save
       redirect_to @commentable
     else

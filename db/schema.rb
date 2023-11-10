@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_095446) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "created_user_id"
+    t.integer "user_id"
     t.string "content"
     t.string "commentable_type"
     t.integer "commentable_id"
@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_095446) do
   end
 
   create_table "reports", force: :cascade do |t|
-    t.integer "created_user_id"
+    t.integer "user_id"
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false

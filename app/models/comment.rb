@@ -2,5 +2,5 @@
 
 class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
-  belongs_to :user, foreign_key: :created_user_id, inverse_of: :comments
+  belongs_to :user, foreign_key: :user_id, inverse_of: :comments
 end
