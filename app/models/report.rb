@@ -11,6 +11,17 @@ class Report < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
+  def update_mentions(base_url)
+    mentioning_reports.clear
+
+    report_url_regex = %r{#{base_url}/reports/([0-9]+)(?=\s|$)}
+    mention_report_ids = content.scan(report_url_regex).flatten.uniq
+    mention_report_ids.each do |mention_report_id|
+      mention_report = Report.find_by(id: mention_report_id)
+      Mention.create!(mentioning_report: self, mentioned_report: mention_report) if mention_report.present?
+    end
+  end
+
   def editable?(target_user)
     user == target_user
   end
