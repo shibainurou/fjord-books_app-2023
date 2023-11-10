@@ -1,0 +1,15 @@
+<div class="mentions-link-container">
+  <% if report.mentioned_reports.count != 0 %>
+    <strong><%= t('.link_title') %></strong>
+    <ul>
+      <% report.mentioned_reports.each do |mentioned_report| %>
+        <li>
+          <%= link_to mentioned_report.title, report_url(mentioned_report) %> -
+          <small>
+            <%= mentioned_report.user.name %> <%= l mentioned_report.created_at, format: :short %>
+          </small>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
