@@ -50,13 +50,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_095446) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.string "content"
     t.string "commentable_type"
     t.integer "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -85,4 +86,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_095446) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "users"
 end
