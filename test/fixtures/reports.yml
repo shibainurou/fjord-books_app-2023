@@ -9,3 +9,4 @@ two:
   user: two
   title: MyString
   content: MyText
+  # content: "http://localhost:3000/reports/<%= ActiveRecord::FixtureSet.identify(:one) %>"

@@ -3,7 +3,10 @@
 require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:one)
     @report = reports(:one)
   end
 
@@ -18,7 +21,6 @@ class ReportsTest < ApplicationSystemTestCase
 
     fill_in 'Content', with: @report.content
     fill_in 'Title', with: @report.title
-    fill_in 'User', with: @report.user_id
     click_on 'Create Report'
 
     assert_text 'Report was successfully created'
@@ -31,7 +33,6 @@ class ReportsTest < ApplicationSystemTestCase
 
     fill_in 'Content', with: @report.content
     fill_in 'Title', with: @report.title
-    fill_in 'User', with: @report.user_id
     click_on 'Update Report'
 
     assert_text 'Report was successfully updated'
