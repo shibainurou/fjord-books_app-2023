@@ -3,6 +3,23 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
+  test 'return true when the user is the target user' do
+    report = reports(:one)
+    assert_equal report.editable?(report.user), true
+  end
+
+  test 'return false when the user is not the target user' do
+    report1 = reports(:one)
+    report2 = reports(:two)
+    assert_equal report2.editable?(report1.user), false
+  end
+
+  test 'returns the date part of created_at' do
+    report = reports(:one)
+    today = Time.zone.today
+    assert_equal report.created_on, today.to_date
+  end
+
   test 'save content without mention' do
     report = Report.new(title: 'test', content: 'test')
     report.save
