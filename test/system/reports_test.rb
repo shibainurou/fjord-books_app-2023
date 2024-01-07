@@ -10,39 +10,48 @@ class ReportsTest < ApplicationSystemTestCase
     @report = reports(:one)
   end
 
-  test 'visiting the index' do
+  test 'ログイン後に日報を作成する' do
     visit reports_url
-    assert_selector 'h1', text: 'Reports'
+    click_on '日報の新規作成'
+
+    fill_in 'タイトル', with: 'テストタイトル'
+    fill_in '内容', with: 'テストコンテンツ'
+    click_on '登録する'
+
+    assert_text '日報が作成されました。'
+    within('p', text: 'タイトル:') do
+      assert_text 'テストタイトル'
+    end
+    within('p', text: '内容:') do
+      assert_text 'テストコンテンツ'
+    end
+
+    click_on '日報の一覧に戻る'
   end
 
-  test 'should create report' do
-    visit reports_url
-    click_on 'New report'
-
-    fill_in 'Content', with: @report.content
-    fill_in 'Title', with: @report.title
-    click_on 'Create Report'
-
-    assert_text 'Report was successfully created'
-    click_on 'Back'
-  end
-
-  test 'should update Report' do
+  test '日報を編集する' do
     visit report_url(@report)
-    click_on 'Edit this report', match: :first
+    click_on 'この日報を編集'
 
-    fill_in 'Content', with: @report.content
-    fill_in 'Title', with: @report.title
-    click_on 'Update Report'
+    fill_in 'タイトル', with: 'テストタイトル編集'
+    fill_in '内容', with: 'テストコンテンツ編集'
+    click_on '更新する'
 
-    assert_text 'Report was successfully updated'
-    click_on 'Back'
+    assert_text '日報が更新されました。'
+    within('p', text: 'タイトル:') do
+      assert_text 'テストタイトル編集'
+    end
+    within('p', text: '内容:') do
+      assert_text 'テストコンテンツ編集'
+    end
+
+    click_on '日報の一覧に戻る'
   end
 
-  test 'should destroy Report' do
+  test '日報を削除する' do
     visit report_url(@report)
-    click_on 'Destroy this report', match: :first
+    click_on 'この日報を削除'
 
-    assert_text 'Report was successfully destroyed'
+    assert_text '日報が削除されました。'
   end
 end
