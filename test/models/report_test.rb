@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
-  test 'return true when the user is the target user' do
+  test '#editable?' do
     report = reports(:one)
     assert_equal true, report.editable?(report.user)
 
