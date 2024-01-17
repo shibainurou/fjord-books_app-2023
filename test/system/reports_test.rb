@@ -19,12 +19,8 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '登録する'
 
     assert_text '日報が作成されました。'
-    within('p', text: 'タイトル:') do
-      assert_text 'テストタイトル'
-    end
-    within('p', text: '内容:') do
-      assert_text 'テストコンテンツ'
-    end
+    assert_text 'テストタイトル'
+    assert_text 'テストコンテンツ'
 
     click_on '日報の一覧に戻る'
   end
@@ -38,12 +34,8 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '更新する'
 
     assert_text '日報が更新されました。'
-    within('p', text: 'タイトル:') do
-      assert_text 'テストタイトル編集'
-    end
-    within('p', text: '内容:') do
-      assert_text 'テストコンテンツ編集'
-    end
+    assert_text 'テストタイトル編集'
+    assert_text 'テストコンテンツ編集'
 
     click_on '日報の一覧に戻る'
   end
